@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Discord Mockup</title>
+  <title>BoadCast</title>
   <link rel="stylesheet" href="../css/mainWindowStyle.css">
 
 </head>
@@ -36,13 +36,20 @@
 		</header>
 
 		<section class="channels-list">
-			<header class="channels-list-header focusable">
+
+      <!--チャンネル追加!-->
+      <script type="text/javascript" src="../js/AddCat.js"></script>
+
+			<header class="channels-list-header focusable" onclick="AddCategory()">
 				<h5>Text Channels</h5>
 			</header>
 
 			<ul class="channels-list-text">
+
+
+
 				<li class="channel focusable channel-text active">
-					<span class="channel-name">general</span>
+					<span class="channel-name" id="add_cat">general</span>
 					<button class="button" role="button" aria-label="Invite"><svg><use xlink:href="#icon-invite" /></svg></button>
 					<button class="button" role="button" aria-label="settings"><svg><use xlink:href="#icon-channel-settings" /></svg></button>
 				</li>
@@ -54,7 +61,7 @@
 				</li>
 			</ul>
 
-			<header class="channels-list-header focusable"  id="add_cat">
+			<header class="channels-list-header focusable">
 				<h5>Voice Channels</h5>
 			</header>
 		</section>
