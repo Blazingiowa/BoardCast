@@ -1,0 +1,14 @@
+{
+  "name": "boardcast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/js/title.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^9.0.0"
+  }
+}
