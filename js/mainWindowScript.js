@@ -1,35 +1,16 @@
-"use strict";
-var $ = document.querySelectorAll.bind(document);
-$(".focusable, .button").forEach(function (el) {
-    // blur only on mouse click
-    // for accessibility, keep focus when keyboard focused
-    el.addEventListener("mousedown", function (e) {
-        return e.preventDefault();
-    });
-    el.setAttribute("tabindex", "0");
-});
-$(".server").forEach(function (el) {
-    el.addEventListener("click", function () {
-        var activeServer = $(".server.active")[0];
-        activeServer.classList.remove("active");
-        activeServer.removeAttribute("aria-selected");
-        el.classList.add("active");
-        el.setAttribute("aria-selected", true);
-    });
-});
-$(".channel-text").forEach(function (el) {
-    el.addEventListener("click", function () {
-        $(".channel-text.active")[0].classList.remove("active");
-        el.classList.add("active");
-    });
-});
-// focus/blur on channel header click
-$(".channels-header")[0].addEventListener("click", function (e) {
-    e.preventDefault();
-    var focused = document.activeElement === e.target;
-    focused ? e.target.blur() : e.target.focus();
-});
+var nav = document.getElementById("navlinks");
+var navlinks = nav.getElementsByClassName("navlink");
 
-document.getElementById("add_cat").onclick = function () {
-    console.log("クリックされた！")
+function setActiveLink() {
+  for (var i = 0; i < navlinks.length; i++) {
+    navlinks[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      if (current.length > 0) {
+        current[0].className = current[0].className.replace(" active", "");
+      }
+      this.className += " active";
+    });
+  }
 }
+
+setActiveLink();
