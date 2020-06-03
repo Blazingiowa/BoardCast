@@ -7,5 +7,5 @@ const {
 
 app.on('ready', () => {
     const brWindow = new BrowserWindow();
-    brWindow.loadURL(`file://${__dirname}/../html/title.html`);
+    brWindow.loadURL(`file://${__dirname}/../index.html`);
 });
