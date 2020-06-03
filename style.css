@@ -536,3 +536,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.icon1 { 
+    filter: invert(11%) sepia(71%) saturate(5170%) hue-rotate(293deg) brightness(87%) contrast(111%);
+}

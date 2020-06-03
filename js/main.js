@@ -35,4 +35,10 @@ $(function () {
             fontSize:'15px'
         },anitime);
     });
-});
+    
+    $('.icon-name').mouseover(function(){
+        $(this).stop(true).animate({
+            
+        },anitime);
+        });
+    });
