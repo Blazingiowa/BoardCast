@@ -21,14 +21,33 @@ $(function () {
             shuffle: false
         }
     });
+    
+    var anitime=500;
 
     $('.names').mouseover(function () {
-        $(this).animate({
-            fontSize: '22px'
-        }, 500);
+        $(this).stop(true).animate({
+            fontSize: '17px'
+        }, anitime);
     });
 
     $('.names').mouseout(function () {
-        console.log("kkkkk");
+        $(this).stop(true).animate({
+            fontSize:'15px'
+        },anitime);
     });
-});
+    
+    $('.icon-name').mouseover(function(){
+        $(this).stop(true).animate({
+            backgroundColor:'#ae5e9b',
+            color:'#ffffff'
+        },anitime);
+    });
+    
+    $('.icon-name').mouseout(function(){
+        $(this).stop(true).animate({
+            backgroundColor:'#ffffff',
+            color:'#333631'
+        },anitime);
+    });
+    });
+
