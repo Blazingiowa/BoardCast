@@ -49,13 +49,4 @@ $(function () {
             color:'#333631'
         },anitime);
     });
-    
-    $('.compose').animatedModal({
-        modalTarget:'#modal-win',
-        animatedIn: 'zoomIn',
-        animatedOut: 'zoomOut',
-        animationDuration: '0.3s',
-        color: '#555',
-        overflow: 'auto'
-    });
     });
