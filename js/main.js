@@ -38,7 +38,15 @@ $(function () {
     
     $('.icon-name').mouseover(function(){
         $(this).stop(true).animate({
-            
+            backgroundColor:'#ae5e9b',
+            color:'#ffffff'
         },anitime);
-        });
+    });
+    
+    $('.icon-name').mouseout(function(){
+        $(this).stop(true).animate({
+            backgroundColor:'#ffffff',
+            color:'#333631'
+        },anitime);
+    });
     });
