@@ -545,3 +545,7 @@ body {
 .images {
     width: 20px;
 }
+
+#modal-win {
+    display: none;
+}
