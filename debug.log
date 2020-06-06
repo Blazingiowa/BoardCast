@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 [0602/192130.971:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0602/192939.730:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0604/193058.277:ERROR:crash_report_database_win.cc(469)] failed to stat report
+=======
+[0606/115539.980:ERROR:crash_report_database_win.cc(469)] failed to stat report
+>>>>>>> gh-pages

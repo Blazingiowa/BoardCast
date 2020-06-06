@@ -21,8 +21,8 @@ $(function () {
             shuffle: false
         }
     });
-    
-    var anitime=500;
+
+    var anitime = 500;
 
     $('.names').mouseover(function () {
         $(this).stop(true).animate({
@@ -32,22 +32,38 @@ $(function () {
 
     $('.names').mouseout(function () {
         $(this).stop(true).animate({
-            fontSize:'15px'
-        },anitime);
-    });
-    
-    $('.icon-name').mouseover(function(){
-        $(this).stop(true).animate({
-            backgroundColor:'#ae5e9b',
-            color:'#ffffff'
-        },anitime);
-    });
-    
-    $('.icon-name').mouseout(function(){
-        $(this).stop(true).animate({
-            backgroundColor:'#ffffff',
-            color:'#333631'
-        },anitime);
-    });
+            fontSize: '15px'
+        }, anitime);
     });
 
+    $('.icon-name').mouseover(function () {
+
+        //console.log($(this).prev());
+
+        var images_ico = $(this).prev();
+        var texts = $(this).children();
+
+        $(this).stop(true).animate({
+            backgroundColor: '#ae5e9b',
+            color: '#ffffff'
+        }, anitime);
+
+        images_ico.rotate({
+            animateTo: 360
+        });
+    });
+
+    $('.icon-name').mouseout(function () {
+
+        var images_ico = $(this).prev();
+
+        $(this).stop(true).animate({
+            backgroundColor: '#ffffff',
+            color: '#333631'
+        }, anitime);
+
+        images_ico.rotate({
+            animateTo: 0
+        });
+    });
+});

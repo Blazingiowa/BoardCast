@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>BoardCast</title>
+    <!--CSSの読み込み-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/animate.css">
+
+    <!--javascriptの読み込み-->
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.lettering.js"></script>
     <script type="text/javascript" src="js/jquery.textillate.js"></script>
     <script src="js/jquery.color.js"></script>
-    
+    <script src="js/jQueryRotate.js"></script>
+
     <!--main.jsは必ず最後に読み込む-->
     <script src="js/main.js"></script>
 </head>
@@ -44,47 +48,45 @@
                         <h1 id="title">BoardCast</h1>
                     </div>
                     <button class="compose">新しいチャンネル
-                        <span class="plus">
-                        </span></button>
+                    </button>
                     <div class="folders">Folders</div>
                     <div class="folder-icons">
                         <div class="icon1">
                             <img src="ico/chat.png" class="images" />
                         </div>
-                        <div class="icon-name">チャット
+                        <div class="icon-name"><span>チャット</span>
                             <button class="buton-span"> 20
                             </button></div>
                     </div>
                     <div class="folder-icons">
                         <div class="icon1">
-                            <img
-                        src="ico/send.png" class="images"/>
+                            <img src="ico/send.png" class="images" />
                         </div>
-                        <div class="icon-name">チャットを始める</div>
+                        <div class="icon-name"><span>チャットを始める</span></div>
                     </div>
                     <div class="folder-icons">
                         <div class="icon1">
-                            <img src="https://i.ibb.co/6ZH9kK3/star.png" />
+                            <img class="images" src="ico/star.png" />
                         </div>
-                        <div class="icon-name">重要</div>
+                        <div class="icon-name"><span>重要</span></div>
                     </div>
                     <div class="folder-icons">
                         <div class="icon1">
-                            <img src="https://i.ibb.co/z4QhcbD/email.png" />
+                            <img class="images" src="ico/board.png" />
                         </div>
-                        <div class="icon-name">ホワイトボード</div>
+                        <div class="icon-name"><span>ホワイトボード</span></div>
                     </div>
                     <div class="folder-icons">
                         <div class="icon1">
-                            <img src="https://i.ibb.co/3MzfGDF/bug.png" />
+                            <img class="images" src="ico/impotant.png" />
                         </div>
-                        <div class="icon-name">迷惑一覧</div>
+                        <div class="icon-name"><span>迷惑一覧</span></div>
                     </div>
                     <div class="folder-icons">
                         <div class="icon1">
-                            <img src="https://i.ibb.co/xfcFLCN/waste-bin.png" />
+                            <img class="images" src="ico/garbage.png" />
                         </div>
-                        <div class="icon-name">ゴミ箱</div>
+                        <div class="icon-name"><span>ゴミ箱</span></div>
                     </div>
                     <div class="folders">
                         Online Friends
@@ -203,8 +205,8 @@
                 <div class="scroll-cards">
                     <div class="card">
                         <div class="mails">
-                           <span class="person border2">W</span>
-                            
+                            <span class="person border2">W</span>
+
                             <div class="mail-names">
                                 わいてぃ
                             </div>
@@ -269,7 +271,7 @@
 
                         </div>
                         <div class="mail-info">
-                           まっすーのチャットルーム
+                            まっすーのチャットルーム
                         </div>
                         <div>
                         </div>
@@ -353,10 +355,7 @@
 
                     <div class="son-images">
                         <div class="inside-img">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
-                            <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
-                            <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
-                            <img src="https://images.unsplash.com/photo-1450609283058-0ec52fa7eac4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+                            <!--添付ファイルが入るdivタグ-->
 
                         </div>
                         <button class="son-buton"> 20+
