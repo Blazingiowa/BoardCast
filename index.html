@@ -14,15 +14,15 @@
     <script type="text/javascript" src="js/jquery.textillate.js"></script>
     <script src="js/jquery.color.js"></script>
     <script src="js/jQueryRotate.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
 
     <!--main.jsは必ず最後に読み込む-->
     <script src="js/main.js"></script>
 </head>
 
 <body>
-    <div id="modal-win">
-        <p>わいてぃ</p>
-    </div>
+
+    <!--メインページ-->
     <div class="dashboard">
         <div class="left">
             <div class="sidebar">
@@ -375,6 +375,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!--プログレス-->
+    <div class="progress" id="progress">
+        <span class="progress-bar"></span>
+        <span class="progress-text">0%</span>
     </div>
     <!-- partial -->
 

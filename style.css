@@ -10,7 +10,7 @@ body {
 .dashboard {
   height: 100vh;
   display: -webkit-box;
-  display: flex;
+  display: none;
 }
 .left {
   height: 100%;
@@ -559,3 +559,39 @@ body {
     cursor: default;
     user-select: none;
 }
+
+.progress {
+    background: linear-gradient(
+    -225deg,
+    #5271c4 0%,
+    #b19fff 48%,
+    #eca1fe 100%
+  );
+    color: rgb(255,255,255);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.progress-bar {
+    border-top: 5px solid rgb(212,220,218);
+    position: absolute;
+    top: 50%;
+    width: 0%;
+}
+
+.progress-text {
+    font-family: "Menlo","Consolas",monospace;
+    font-size: 28px;
+    margin-top: 10px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+.progress-complete .progress-bar{
+    border-top-color: rgb(255,255,255);
+}
+
+

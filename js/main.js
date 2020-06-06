@@ -1,3 +1,69 @@
+//最初のページ読み込み処理
+$(function () {
+
+    var dash = $('.dashboard');
+    //body.hide();
+
+    //console.log(body);
+
+    imagesProgress();
+
+    function imagesProgress() {
+
+        var $container = $('#progress'),
+            $progressBar = $container.find('.progress-bar'),
+            $progressText = $container.find('.progress-text'),
+
+            imgLoad = imagesLoaded('body'),
+            imgTotal = imgLoad.images.length,
+
+            imageLoaded = 0,
+            current = 0,
+
+            progressTimer = setInterval(updateProgress, 1000 / 60);
+        imgLoad.on('progress', function () {
+            imageLoaded++;
+        });
+
+        function updateProgress() {
+            var target = (imageLoaded / imgTotal) * 100;
+            current += (target - current) * 0.1;
+
+            $progressBar.css({
+                width: current + '%'
+            });
+            $progressText.text(Math.floor(current) + '%');
+
+            //終了処理
+            if (current >= 100) {
+                clearInterval(progressTimer);
+                $container.addClass('progress-complete');
+                $progressBar.add($progressText)
+                    .delay(500)
+                    .animate({
+                        opacity: 0
+                    }, 250, function () {
+                        $container.animate({
+                            top: '-100%'
+                        }, 1000);
+                    });
+
+                dash.delay(1000).queue(function () {
+                    dash.css({
+                        display: 'flex'
+                    });
+                })
+            }
+
+            if (current > 99.9) {
+                current = 100;
+
+
+            }
+        }
+    }
+});
+//メインページのイベントハンドラ
 $(function () {
     $('#title').textillate({
         loop: true,
