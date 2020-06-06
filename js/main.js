@@ -48,7 +48,7 @@ $(function () {
                         }, 1000);
                     });
 
-                dash.delay(1000).queue(function () {
+                dash.delay(780).queue(function () {
                     dash.css({
                         display: 'flex'
                     });
