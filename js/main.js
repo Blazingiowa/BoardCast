@@ -2,6 +2,7 @@
 $(function () {
 
     var dash = $('.dashboard');
+    var sideMenubtn = $('#side-menu-btn');
     //body.hide();
 
     //console.log(body);
@@ -52,7 +53,15 @@ $(function () {
                     dash.css({
                         display: 'flex'
                     });
-                })
+
+
+                });
+
+                sideMenubtn.delay(780).queue(function () {
+                    sideMenubtn.css({
+                        display: 'flex'
+                    });
+                });
             }
 
             if (current > 99.9) {
@@ -132,4 +141,21 @@ $(function () {
             animateTo: 0
         });
     });
+
+    //モーダルウィンドウ
+    $('.compose').click(function () {
+        $('.js-modal').fadeIn();
+        return false;
+    });
+
+    $('.js-modal-close').click(function () {
+        $('.js-modal').fadeOut();
+        return false;
+    });
+});
+
+//サイドメニュー
+
+$(document).ready(function () {
+    $('.drawer').drawer();
 });
