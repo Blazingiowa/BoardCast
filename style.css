@@ -686,3 +686,7 @@ body {
 #name-holder {
     user-select: none;
 }
+
+#name-holder2 {
+    background-color: #007b43;
+}
