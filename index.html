@@ -10,11 +10,15 @@
     <script type="text/javascript" src="js/jquery.lettering.js"></script>
     <script type="text/javascript" src="js/jquery.textillate.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+
+    <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
 </head>
 
 <body>
     <!-- partial:index.partial.html -->
     <div class="dashboard">
+
+
         <div class="left">
             <div class="sidebar">
                 <div class="wrapper">
@@ -54,7 +58,7 @@
                         <div class="icon1">
                             <img src="https://i.ibb.co/2yLfX9W/sent-mail.png" />
                         </div>
-                        <div class="icon-name">チャットを始める</div>
+                        <div class="icon-name" id="create_chat">新しくチャットを作る</div>
                     </div>
                     <div class="folder-icons">
                         <div class="icon1">
@@ -141,7 +145,7 @@
                 <div class="top-bar">
                     <div class="top-bar-justify">
                         <div class="big-inbox">
-                            チャンネルタイトル
+                            #チャンネルタイトル
                         </div>
 
                         <div class="top-bar-items">
@@ -195,7 +199,8 @@
             </div>
             <div class="right-body">
                 <div class="scroll-cards">
-                    <div class="card">
+
+                    <div class="card" id="w_room">
                         <div class="mails">
                            <span class="person border2">W</span>
                             
@@ -204,8 +209,8 @@
                             </div>
 
                         </div>
-                        <div class="mail-info">
-                            わいてぃのチャットルーム
+                        <div class="mail-info" >
+                            <span class="channel_name">わいてぃのチャットルーム</span>
                         </div>
                         <div>
                         </div>
@@ -225,7 +230,7 @@
                             <div class="date">8:30 AM</div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="s_room">
                         <div class="mails">
                             <span class="person border1">蕎</span>
                             <div class="mail-names">
@@ -234,7 +239,7 @@
 
                         </div>
                         <div class="mail-info">
-                            そばなうのチャットルーム
+                            <span class="channel_name">そばなうのチャットルーム</span>
                         </div>
                         <div>
                         </div>
@@ -254,7 +259,7 @@
                             <div class="date">8:30 AM</div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="m_room">
                         <div class="mails">
                             <span class="person border2">増</span>
                             <div class="mail-names">
@@ -263,7 +268,7 @@
 
                         </div>
                         <div class="mail-info">
-                           まっすーのチャットルーム
+                            <span class="channel_name">まっすーのチャットルーム</span>
                         </div>
                         <div>
                         </div>
@@ -283,7 +288,8 @@
                             <div class="date">8:30 AM</div>
                         </div>
                     </div>
-                    <div class="card">
+
+                    <div class="card" id="b_room">
                         <div class="mails">
                             <span class="person border3">B</span>
                             <div class="mail-names">
@@ -292,7 +298,7 @@
 
                         </div>
                         <div class="mail-info">
-                            Blazingiowaのチャットルーム
+                            <span class="channel_name">Blazingiowaのチャットルーム</span>
                         </div>
                         <div>
                         </div>
@@ -314,8 +320,48 @@
 
                     </div>
 
+
+
+
+                     <!-- テスト -->
+                     <div class="card last_room" id="v_room">
+                        <audio id="local_audio"></audio>
+                        <div id="remote_audio"></div>
+                        <div class="mails">
+                            <span class="person border3">B</span>
+                            <div class="mail-names">
+                                ヴォイス
+                            </div>
+
+                        </div>
+                        <div class="mail-info">
+                            <span class="channel_name">ボイスチャットルーム</span>
+                        </div>
+                        <div>
+                        </div>
+                        <div class="bottom-info">
+                            <div class="check1">
+                                <label class="checkbox">
+                                    <input type="checkbox" />
+                                </label>
+                                <div class="star">
+                                    <img src="https://i.ibb.co/SN5SJ8x/star.png" />
+                                </div>
+                                <div class="star">
+                                    <img src="https://i.ibb.co/FW9tsHK/attachment.png" />
+                                </div>
+
+                            </div>
+                            <div class="date">8:30 AM</div>
+                        </div>
+
+                    </div>
+
+
+
                 </div>
                 <div class="message">
+                <!--
                     <div class="mes-date">
                         日付
                     </div>
@@ -367,10 +413,46 @@
                             <img src="https://i.ibb.co/6W40kTg/forward-arrow.png" />
                         </span>
                     </button>
+                -->
                 </div>
             </div>
         </div>
+        
     </div>
     <!-- partial -->
 
-</body></html>
+    <div id="modal-overlay">
+        <div class="modal">
+            <span id="modal_title">チャンネルを作成</span><br>
+        
+                <div class="type_select_bt" id="text_bt">
+                    <img src="images/hukidashi.png" alt="吹き出し" class="icon">
+                    <br><span class="type_name">テキスト</span>
+                </div>
+
+                <div class="type_select_bt" id="voice_bt">
+                    <img src="images/speaker.png" alt="吹き出し" class="icon">
+                    <br><span class="type_name">ボイス</span>
+                </div>
+
+                
+                <span style="margin-left: 10px;">チャンネル名</span><br>
+                <input id="channel_name" type="text"/><br>
+                <span id="required_name">※チャンネル名を入力してください</span>
+
+                <div class="bt_box">
+                    <div class="bt_under" id="bt_cancel">
+                        キャンセル
+                    </div>
+
+                    <div class="bt_under" id="bt_create">
+                        チャンネル作成
+                    </div>
+                </div>
+                
+        </div>
+
+    </div>
+
+</body>
+</html>
