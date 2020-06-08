@@ -111,7 +111,7 @@ body {
     width: 100%;
     border-radius: 5px;
     position: relative;
-    cursor: default;
+    cursor: pointer;
     user-select: none;
 }
 .names {
@@ -619,6 +619,7 @@ body {
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
+    height: 40%;
 }
 
 
@@ -634,7 +635,7 @@ body {
 
 .text-input {
   position: relative;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .text-input input[type="text"] {
   display: inline-block;
@@ -690,3 +691,7 @@ body {
 #name-holder2 {
     background-color: #007b43;
 }
+
+
+
+
