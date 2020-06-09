@@ -73,111 +73,143 @@ $(function () {
     }
 });
 
-function MainPageEvent(){
-//メインページのイベントハンドラ
-$(function () {
-    $('#title').textillate({
-        loop: true,
-        minDisplayTime: 3000,
-        initialDelay: 1000,
-        autoStart: true,
+function MainPageEvent() {
+    //メインページのイベントハンドラ
+    $(function () {
+        $('#title').textillate({
+            loop: true,
+            minDisplayTime: 3000,
+            initialDelay: 1000,
+            autoStart: true,
 
-        in: {
-            effect: 'rotateInDownLeft',
-            delayScale: 1.5,
-            delay: 50,
-            sync: false,
-            shuffle: false
-        },
+            in: {
+                effect: 'rotateInDownLeft',
+                delayScale: 1.5,
+                delay: 50,
+                sync: false,
+                shuffle: false
+            },
 
-        out: {
-            effect: 'rollOut',
-            delayScale: 1.5,
-            delay: 50,
-            sync: false,
-            shuffle: false
-        }
-    });
+            out: {
+                effect: 'rollOut',
+                delayScale: 1.5,
+                delay: 50,
+                sync: false,
+                shuffle: false
+            }
+        });
 
-    var anitime = 500;
+        var anitime = 500;
 
-    $('.names').mouseover(function () {
-        $(this).stop(true).animate({
-            fontSize: '17px'
-        }, anitime);
-    });
+        $('.names').mouseover(function () {
+            $(this).stop(true).animate({
+                fontSize: '17px'
+            }, anitime);
+        });
 
-    $('.names').mouseout(function () {
-        $(this).stop(true).animate({
-            fontSize: '15px'
-        }, anitime);
-    });
+        $('.names').mouseout(function () {
+            $(this).stop(true).animate({
+                fontSize: '15px'
+            }, anitime);
+        });
 
-    $('.icon-name').mouseover(function () {
+        $('.icon-name').mouseover(function () {
 
-        //console.log($(this).prev());
+            //console.log($(this).prev());
 
-        var images_ico = $(this).prev();
-        var texts = $(this).children();
+            var images_ico = $(this).prev();
+            var texts = $(this).children();
 
-        $(this).stop(true).animate({
-            backgroundColor: '#ae5e9b',
-            color: '#ffffff'
-        }, anitime);
+            $(this).stop(true).animate({
+                backgroundColor: '#ae5e9b',
+                color: '#ffffff'
+            }, anitime);
 
-        images_ico.rotate({
-            animateTo: 360
+            images_ico.rotate({
+                animateTo: 360
+            });
+        });
+
+        $('.icon-name').mouseout(function () {
+
+            var images_ico = $(this).prev();
+
+            $(this).stop(true).animate({
+                backgroundColor: '#ffffff',
+                color: '#333631'
+            }, anitime);
+
+            images_ico.rotate({
+                animateTo: 0
+            });
+        });
+
+        //モーダルウィンドウ
+        $('.compose').click(function () {
+            $('.js-modal').fadeIn();
+            return false;
+        });
+
+        $('.js-modal-close').click(function () {
+            $('.js-modal').fadeOut();
+            return false;
         });
     });
 
-    $('.icon-name').mouseout(function () {
+    //サイドメニュー
 
-        var images_ico = $(this).prev();
-
-        $(this).stop(true).animate({
-            backgroundColor: '#ffffff',
-            color: '#333631'
-        }, anitime);
-
-        images_ico.rotate({
-            animateTo: 0
-        });
+    $(document).ready(function () {
+        $('.drawer').drawer();
     });
-
-    //モーダルウィンドウ
-    $('.compose').click(function () {
-        $('.js-modal').fadeIn();
-        return false;
-    });
-
-    $('.js-modal-close').click(function () {
-        $('.js-modal').fadeOut();
-        return false;
-    });
-});
-
-//サイドメニュー
-
-$(document).ready(function () {
-    $('.drawer').drawer();
-});
 }
 //以下普通のJavaScript
 
 //ページのロードが終わったら実行
-window.onload=function(){
+window.onload = function () {
     MainPageEvent();
     ClickEventListener();
+    TextInputListener();
 }
 
-function ClickEventListener(){
-    
-   $(function(){
-       $('.card').click(function(){
-          var TitleText= $(this).find('.mail-info').text();
-           
-           $('.big-inbox').stop(true).text("#"+TitleText); 
-               
-       });
-   });
-   }
+//テキストインプットの値取得
+function TextInputListener() {
+    $(function () {
+        $(".js-modal-close").click(function () {
+            var TextChannelName = $(".input1").val();
+            console.log(TextChannelName);
+        });
+    });
+}
+
+var Clicked;
+//要素のクリックイベント
+function ClickEventListener() {
+    //Card要素がクリックされたら実行するイベント
+    $(function () {
+        $('.card').click(function () {
+
+            Clicked = true;
+
+            $(this).stop(true).animate({
+                backgroundColor: '#e7e7eb'
+            }, 50);
+
+            var TitleText = $(this).find('.mail-info').text();
+
+            $('.big-inbox').stop(true).text("#" + TitleText).css({
+                opacity: 0
+            }).animate({
+                opacity: 1
+            },1000);
+
+        });
+
+        $('.card').mouseout(function () {
+            if (Clicked) {
+                $(this).stop(true).animate({
+                    backgroundColor: '#fff'
+                },50);
+            }
+        });
+    });
+}
