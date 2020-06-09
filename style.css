@@ -118,8 +118,8 @@ body {
   margin-left: 10px;
   font-weight: bold;
   font-size: 15px;
-    cursor: default;
-    user-select: none;
+  cursor: default;
+  user-select: none;
 }
 
 .avatar > img {
@@ -692,6 +692,43 @@ body {
     background-color: #007b43;
 }
 
-
-
+/*　チャット */
+.chat_card {
+  border: 1px solid;
+  background-color: #b0c4de;
+  width: 100%;
+  
+  margin-bottom: 15px;
+  
+  box-sizing: border-box;
+  min-height: 72px;
+}
+.user_icon {
+  width:  60px;
+  height: 60px;
+  border-radius: 50%; 
+  background-color: #adff2f;
+  margin: 5px;
+  
+  float: left;
+}
+.chat_area {
+  vertical-align: top;
+  border: 1px solid red;
+ 
+  margin: 5px 0 5px 65px;
+  
+}
+.user_date {
+  font-size: 14px;
+  
+}
+.user_name {
+  margin-right: 15px;
+}
+.text_area {
+  width: 100%;
+  
+  word-break: break-all;
+}
 
