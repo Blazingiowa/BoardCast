@@ -692,6 +692,39 @@ body {
     background-color: #007b43;
 }
 
+/*　チャット */
+.chat_card {
+  border: 1px solid;
+  background-color: #b0c4de;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+}
+.user_icon {
+  width:  60px;
+  height: 60px;
+  border-radius: 50%; 
+  background-color: #adff2f;
+  margin-right: 4px;
 
-
+  float: left;
+}
+.chat_area {
+  vertical-align: top;
+  border: 1px solid red;
+  
+  margin-left: 65px;
+}
+.user_date {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.user_name {
+  margin-right: 15px;
+}
+.text_area {
+  width: 100%;
+  
+  word-break: break-all;
+}
 
