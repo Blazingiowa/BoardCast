@@ -1,9 +1,6 @@
 //最初のページ読み込み処理
 $(function () {
 
-    $('.user_name').last().text('waitexi');
-    $('.text_area').last().text('メンタルブレイク');
-
     var dash = $('.dashboard');
     var sideMenubtn = $('#side-menu-btn');
     //body.hide();

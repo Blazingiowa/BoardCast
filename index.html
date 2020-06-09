@@ -19,9 +19,14 @@
     <script src="js/drawer.min.js"></script>
     <script src="js/iscroll.js"></script>
     <script src="js/lottie.min.js"></script>
+    
+    <!--socket関係のjs-->
+    <script type="text/javascript" src="http://192.168.11.39:3000/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/socket.js"></script>
 
     <!--main.jsは必ず最後に読み込む-->
     <script src="js/main.js"></script>
+    
 </head>
 
 <body class="drawer drawer--left">
@@ -335,23 +340,13 @@
                         </div>
 
                     </div>
+                    
+                    <div name="myform">
+                        <input name="myform-text" type="text" id="textchat">
+                        <button name="btn" id="btn">送信</button>
+                    </div>
+                    
                     <div class="message">
-                        <div class="chat_card">
-                            <img src="ico/inoshishi.png" alt="アイコン" class="user_icon">
-
-                            <div class="chat_area">
-                                <div class="user_date">
-                                    <span class="user_name">テストネーム</span>
-                                    <span class="chat_time">2020年99月99日</span>
-                                </div>
-
-                                <div class="text_area">
-                                    ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！
-                                    <br>テストケースヨシ！
-                                </div>
-    
-                            </div>
-                        </div>
                         
                         <div class="chat_card">
                             <img src="ico/inoshishi.png" alt="アイコン" class="user_icon">
@@ -369,6 +364,7 @@
     
                             </div>
                         </div>
+
                     <!--
                         <div class="mes-date">
                             日付
