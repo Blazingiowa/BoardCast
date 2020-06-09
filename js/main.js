@@ -72,6 +72,8 @@ $(function () {
         }
     }
 });
+
+function MainPageEvent(){
 //メインページのイベントハンドラ
 $(function () {
     $('#title').textillate({
@@ -159,3 +161,23 @@ $(function () {
 $(document).ready(function () {
     $('.drawer').drawer();
 });
+}
+//以下普通のJavaScript
+
+//ページのロードが終わったら実行
+window.onload=function(){
+    MainPageEvent();
+    ClickEventListener();
+}
+
+function ClickEventListener(){
+    
+   $(function(){
+       $('.card').click(function(){
+          var TitleText= $(this).find('.mail-info').text();
+           
+           $('.big-inbox').stop(true).text("#"+TitleText); 
+               
+       });
+   });
+   }
