@@ -19,14 +19,23 @@
     <script src="js/drawer.min.js"></script>
     <script src="js/iscroll.js"></script>
     <script src="js/lottie.min.js"></script>
+<<<<<<< HEAD
     
     <!--socket関係のjs-->
     <script type="text/javascript" src="http://192.168.3.18:3000/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/socket.js"></script>
+=======
+    <script src="js/Sortable.min.js"></script>
+
+    <!--socket関係のjs
+    環境が違うため一時的にコメントアウト-->
+    <!--<script type="text/javascript" src="http://192.168.11.39:3000/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/socket.js"></script>-->
+>>>>>>> bbf21db9635711f538b7af846aaaab12ea3fcb53
 
     <!--main.jsは必ず最後に読み込む-->
     <script src="js/main.js"></script>
-    
+
 </head>
 
 <body class="drawer drawer--left">
@@ -60,7 +69,7 @@
                     </div>
                 </div>
                 <div class="navigation">
-                    <div class="wrapper2">
+                    <div class="wrapper2" id="wrapper2">
                         <div class="abilan">
                             <h1 id="title">BoardCast</h1>
                         </div>
@@ -219,8 +228,8 @@
                     </div>
                 </div>
                 <div class="right-body">
-                    <div class="scroll-cards">
-                        <div class="card">
+                    <div class="scroll-cards" id="scroll_cards">
+                        <div class="card" id="card_clone">
                             <div class="mails">
                                 <span class="person border2">W</span>
 
@@ -240,7 +249,7 @@
                                         <input type="checkbox" />
                                     </label>
                                     <div class="star">
-                                    
+
                                     </div>
                                     <div class="star">
                                         <img src="https://i.ibb.co/FW9tsHK/attachment.png" />
@@ -340,6 +349,7 @@
                         </div>
 
                     </div>
+<<<<<<< HEAD
                     
                     
                     <div class="message">
@@ -349,6 +359,16 @@
                             <button name="btn" id="btn">送信</button>
                         </div>
                         
+=======
+
+                    <div name="myform">
+                        <input name="myform-text" type="text" id="textchat">
+                        <button name="btn" id="btn">送信</button>
+                    </div>
+
+                    <div class="message">
+
+>>>>>>> bbf21db9635711f538b7af846aaaab12ea3fcb53
                         <div class="chat_card">
                             <img src="ico/inoshishi.png" alt="アイコン" class="user_icon">
 
@@ -362,11 +382,11 @@
                                     ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！ヨシ！
                                     <br>テストケースヨシ！
                                 </div>
-    
+
                             </div>
                         </div>
 
-                    <!--
+                        <!--
                         <div class="mes-date">
                             日付
                         </div>
@@ -415,7 +435,7 @@
                                 <img src="https://i.ibb.co/6W40kTg/forward-arrow.png" />
                             </span>
                         </button>
-                    -->    
+                    -->
                     </div>
                 </div>
             </div>
@@ -427,18 +447,18 @@
             <div class="modal__content">
 
                 <div>
-                <div class="text-input" id="right-col">
-                    <input type="text" class="input1" placeholder="チャンネル名を入力">
-                    <label for="input1" id="name-holder">Text</label>
+                    <div class="text-input" id="right-col">
+                        <input type="text" class="input1" placeholder="チャンネル名を入力">
+                        <label for="input1" id="name-holder">Text</label>
+                    </div>
+
+                    <div class="text-input">
+                        <input type="text" class="input1" placeholder="チャンネル名を入力">
+                        <label for="input1" id="name-holder2">Voice</label>
+                    </div>
                 </div>
-                    
-                <div class="text-input">
-                    <input type="text" class="input1" placeholder="チャンネル名を入力">
-                    <label for="input1" id="name-holder2">Voice</label>
-                </div>
-                </div>
-                
-                
+
+
                 <a class="js-modal-close" href="">閉じる</a>
             </div>
         </div>
@@ -451,6 +471,9 @@
         <span class="progress-text">0%</span>
     </div>
 
-</body>
 
-</html>
+    <!--オーディオの読み込み-->
+    <audio id='sounds'>
+        <source src="mp3/alert.mp3">
+    </audio>
+</body></html>
