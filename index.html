@@ -19,6 +19,7 @@
     <script src="js/drawer.min.js"></script>
     <script src="js/iscroll.js"></script>
     <script src="js/lottie.min.js"></script>
+    <script src="js/Sortable.min.js"></script>
 
     <!--socket関係のjs
     環境が違うため一時的にコメントアウト-->
@@ -61,7 +62,7 @@
                     </div>
                 </div>
                 <div class="navigation">
-                    <div class="wrapper2">
+                    <div class="wrapper2" id="wrapper2">
                         <div class="abilan">
                             <h1 id="title">BoardCast</h1>
                         </div>
@@ -220,8 +221,8 @@
                     </div>
                 </div>
                 <div class="right-body">
-                    <div class="scroll-cards">
-                        <div class="card">
+                    <div class="scroll-cards" id="scroll_cards">
+                        <div class="card" id="card_clone">
                             <div class="mails">
                                 <span class="person border2">W</span>
 
@@ -451,4 +452,9 @@
         <span class="progress-text">0%</span>
     </div>
 
+
+    <!--オーディオの読み込み-->
+    <audio id='sounds'>
+        <source src="mp3/alert.mp3">
+    </audio>
 </body></html>
