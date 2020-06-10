@@ -1,9 +1,6 @@
 //最初のページ読み込み処理
 $(function () {
 
-    $('.user_name').last().text('waitexi');
-    $('.text_area').last().text('メンタルブレイク');
-
     var dash = $('.dashboard');
     var sideMenubtn = $('#side-menu-btn');
     //body.hide();
@@ -172,30 +169,55 @@ window.onload = function () {
     MainPageEvent();
     ClickEventListener();
     TextInputListener();
+    DragMouseEventListener();
+    //AudioPlayListener();
+}
+
+//ドラッグマウスイベント
+function DragMouseEventListener() {
+    //カード要素のマウスドラッグイベント
+    var CardList = document.getElementById('scroll_cards');
+    var Sort = Sortable.create(CardList, {
+        animation: 300
+    });
+    //wrapper2要素のマウスドラッグイベント
+    var IconList = document.getElementById('wrapper2');
+    var SortIcon = Sortable.create(IconList, {
+        animation: 300
+    });
 }
 
 //テキストインプットの値取得
 function TextInputListener() {
+    var card_id = document.getElementById('card_clone');
+    var card = document.getElementsByClassName('card');
+
     $(function () {
         $(".js-modal-close").click(function () {
             var TextChannelName = $(".input1").val();
-            console.log(TextChannelName);
+
+            //JQuery
+            var cards_count = $('.card').length
+            console.log(cards_count);
+
+            var card_node = $('#card_clone').clone().removeAttr('id').insertAfter($('.card').eq(cards_count - 1)).find('.mail-info').text(TextChannelName);
+
+            ClickEventListener();
         });
     });
 }
 
-var Clicked;
+
 //要素のクリックイベント
 function ClickEventListener() {
     //Card要素がクリックされたら実行するイベント
+
     $(function () {
         $('.card').click(function () {
 
-            Clicked = true;
-
             $(this).stop(true).animate({
-                backgroundColor: '#e7e7eb'
-            }, 50);
+                backgroundColor: '#a6a5c4'
+            }, 1000);
 
             var TitleText = $(this).find('.mail-info').text();
 
@@ -203,16 +225,24 @@ function ClickEventListener() {
                 opacity: 0
             }).animate({
                 opacity: 1
-            },1000);
+            }, 500);
 
         });
 
-        $('.card').mouseout(function () {
-            if (Clicked) {
+        $('.card').hover(function () {
+                ; //特に何もしないけど必要な関数
+            },
+            function () {
                 $(this).stop(true).animate({
                     backgroundColor: '#fff'
-                },50);
-            }
-        });
+                }, 500);
+            });
+    });
+}
+
+function AudioPlayListener() {
+    $('body').click(function () {
+        document.getElementById('sounds').currentTime = 0;
+        $('#sounds').get(0).play();
     });
 }
