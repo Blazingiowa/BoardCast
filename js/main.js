@@ -217,7 +217,7 @@ function ClickEventListener() {
 
             $(this).stop(true).animate({
                 backgroundColor: '#a6a5c4'
-            }, 50);
+            }, 1000);
 
             var TitleText = $(this).find('.mail-info').text();
 
@@ -225,7 +225,7 @@ function ClickEventListener() {
                 opacity: 0
             }).animate({
                 opacity: 1
-            }, 1000);
+            }, 500);
 
         });
 
@@ -235,7 +235,7 @@ function ClickEventListener() {
             function () {
                 $(this).stop(true).animate({
                     backgroundColor: '#fff'
-                }, 50);
+                }, 500);
             });
     });
 }
