@@ -191,7 +191,7 @@ function ClickEventListener() {
             Clicked = true;
 
             $(this).stop(true).animate({
-                backgroundColor: '#e7e7eb'
+                backgroundColor: '#a6a5c4'
             }, 50);
 
             var TitleText = $(this).find('.mail-info').text();
@@ -200,16 +200,19 @@ function ClickEventListener() {
                 opacity: 0
             }).animate({
                 opacity: 1
-            },1000);
+            }, 1000);
 
         });
 
-        $('.card').mouseout(function () {
-            if (Clicked) {
-                $(this).stop(true).animate({
-                    backgroundColor: '#fff'
-                },50);
-            }
-        });
+        $('.card').hover(function () {
+                ; //特に何もしないけど必要な関数
+            },
+            function () {
+                if (Clicked) {
+                    $(this).stop(true).animate({
+                        backgroundColor: '#fff'
+                    }, 50);
+                }
+            });
     });
 }
