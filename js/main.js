@@ -215,11 +215,13 @@ function ClickEventListener() {
     $(function () {
         $('.card').click(function () {
 
+            //Card要素がクリックされたら色を変える
             $(this).stop(true).animate({
                 backgroundColor: '#a6a5c4'
-            }, 1000);
+            }, 200);
 
             var TitleText = $(this).find('.mail-info').text();
+            //Card要素中のmail-info要素のテキストを取得
 
             $('.big-inbox').stop(true).text("#" + TitleText).css({
                 opacity: 0
@@ -235,8 +237,19 @@ function ClickEventListener() {
             function () {
                 $(this).stop(true).animate({
                     backgroundColor: '#fff'
-                }, 500);
+                }, 200);
             });
+    });
+    
+    $('.compose').hover(function(){
+        $(this).stop(true).animate({
+            borderRadius:'60'
+        },2000);
+    },function()
+                       {
+        $(this).stop(true).animate({
+            borderRadius:'13'
+        },200);
     });
 }
 
