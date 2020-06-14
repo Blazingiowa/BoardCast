@@ -254,6 +254,38 @@ function ClickEventListener() {
             borderRadius: '13'
         }, 200);
     });
+
+
+    //ファイル添付ボタンのアニメーション処理
+    var delayTime = 500;
+
+    $('.filebtn').hover(function () {
+        $(this).stop(true).animate({
+            backgroundColor: '#eb6ea5',
+            borderRadius: '10px',
+            borderColor: '#fff'
+        }, delayTime);
+
+        $('.material-icon').stop(true).animate({
+            color: '#fff'
+        }, delayTime);
+
+
+    }, function () {
+        $('.filebtn').stop(true).animate({
+            backgroundColor: '#fff',
+            borderRadius: '0px',
+            borderColor: '#000'
+        }, delayTime);
+
+        $('.material-icon').stop(true).animate({
+            color: '#000'
+        }, delayTime);
+    });
+
+    $('.filebtn').click(function () {
+        alert('ファイル添付機能実装予定');
+    });
 }
 
 function AudioPlayListener() {
