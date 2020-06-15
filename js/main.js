@@ -283,9 +283,6 @@ function ClickEventListener() {
         }, delayTime);
     });
 
-    $('.filebtn').click(function () {
-        alert('ファイル添付機能実装予定');
-    });
 }
 
 function AudioPlayListener() {
