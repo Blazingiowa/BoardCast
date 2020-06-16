@@ -399,6 +399,7 @@ body {
     /*-webkit-transition: 0.3s;
   transition: 0.3s;*/
     user-select: none;
+    border: 1px solid #000;
 }
 
 /*.card:hover {
@@ -811,4 +812,31 @@ body {
     width: 100%;
 
     word-break: break-all;
+}
+
+.star {}
+
+.fav-icons {
+    width: 20px;
+}
+
+#name-holder3 {
+    background-color: deeppink;
+}
+
+.filebtn {
+    background-color: #fff;
+    text-decoration: none;
+    border: 1px solid #fff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.material-icon {
+    top: 50%;
+    font-size: 20px;
 }

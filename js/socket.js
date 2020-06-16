@@ -10,23 +10,29 @@ var dates;
 var SendMsg;
 
 
-socket.on('connect',function(){
-    
-    $('#btn').click(function(){
+socket.on('connect', function () {
+
+    $('#btn').click(function () {
         inputMsg = $('#textchat').val();
         $('#textchat').val("");
-        
+
         year = nowDate.getFullYear();
         month = nowDate.getMonth() + 1;
         day = nowDate.getDate();
         dates = year + "/" + month + "/" + day;
-        
-        SendMsg = {msg:inputMsg,dates:dates};
-        
-        socket.emit('c2s_msg',{value:SendMsg});
-        
+
+        SendMsg = {
+            msg: inputMsg,
+            dates: dates
+        };
+
+        socket.emit('c2s_msg', {
+            value: SendMsg
+        });
+
     });
 
+<<<<<<< HEAD
     socket.on('s2c_msg',function(GetMsg){
     //$('#msgView').prepend('<div>' + GetMsg.value['msg'] + "｜" + GetMsg.value['dates'] + '</div>');
     /*$('.message').append('<div class="chat_card"><img src="ico/inoshishi.png" alt="アイコン" class="user_icon"><div class="chat_area"><div class="user_date"><span class="user_name"></span><span class="chat_time"></span></div><div class="text_area"></div></div></div>');*/
@@ -34,10 +40,17 @@ socket.on('connect',function(){
         var chatcard = $('#chat_card');
         $('.message').append(chatcard);
         
+=======
+    socket.on('s2c_msg', function (GetMsg) {
+        //$('#msgView').prepend('<div>' + GetMsg.value['msg'] + "｜" + GetMsg.value['dates'] + '</div>');
+
+        $('.message').append('<div class="chat_card"><img src="ico/inoshishi.png" alt="アイコン" class="user_icon"><div class="chat_area"><div class="user_date"><span class="user_name"></span><span class="chat_time"></span></div><div class="text_area"></div></div></div>');
+
+>>>>>>> 449eaaf830823adad7776f954afbcfb8c9d81cd7
         $('.user_name').last().text(GetMsg.value['ip']);
         $('.text_area').last().text(GetMsg.value['msg']);
         $('.chat_time').last().text(GetMsg.value['dates']);
 
-        
-    });   
+
+    });
 });
