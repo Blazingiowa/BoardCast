@@ -768,7 +768,7 @@ body {
 }
 
 /*　チャット */
-.chat_card {
+#chat_card {
     border: 1px solid;
     background-color: #b0c4de;
     width: 100%;
@@ -777,6 +777,7 @@ body {
 
     box-sizing: border-box;
     min-height: 72px;
+    
 }
 
 .user_icon {
