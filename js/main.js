@@ -99,6 +99,25 @@ function MainPageEvent() {
             }
         });
 
+        //遊びの処理
+        $('.text_area').textillate({
+            loop: false,
+            minDisplayTime: 3000,
+            initialDelay: 1000,
+            autoStart: true,
+
+            in: {
+                effect: 'rotateIn',
+                delayScale: 1.5,
+                delay: 50,
+                sync: false,
+                shuffle: false
+            }
+        });
+        //ここまで
+
+
+
         var anitime = 500;
 
         $('.names').mouseover(function () {
@@ -259,7 +278,7 @@ function ClickEventListener() {
     //ファイル添付ボタンのアニメーション処理
     var delayTime = 500;
 
-    $('.filebtn').hover(function () {
+    /*$('.filebtn').hover(function () {
         $(this).stop(true).animate({
             backgroundColor: '#eb6ea5',
             borderRadius: '10px',
@@ -281,7 +300,7 @@ function ClickEventListener() {
         $('.material-icon').stop(true).animate({
             color: '#000'
         }, delayTime);
-    });
+    });*/
 
 }
 
