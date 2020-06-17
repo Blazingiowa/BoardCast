@@ -18,13 +18,13 @@
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/drawer.min.js"></script>
     <script src="js/iscroll.js"></script>
-    <script src="js/lottie.min.js"></script>
     <script src="js/Sortable.min.js"></script>
+    <script src="js/ftpconnect.js"></script>
 
     <!--socket関係のjs
     環境が違うため一時的にコメントアウト-->
-    <!--<script type="text/javascript" src="http://192.168.3.18:3000/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="js/socket.js"></script>-->
+    <script type="text/javascript" src="http://192.168.11.39:3000/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/socket.js"></script>
 
 
     <!--main.jsは必ず最後に読み込む-->
@@ -243,7 +243,7 @@
                                         <input type="checkbox" />
                                     </label>
                                     <div class="star">
-                                        <img class=fav-icons src="ico/star.png">
+                                        <img class="fav-icons" src="ico/star_yellow.png">
                                     </div>
                                     <div class="link">
                                         <img src="https://i.ibb.co/FW9tsHK/attachment.png" />
@@ -272,11 +272,10 @@
                                         <input type="checkbox" />
                                     </label>
                                     <div class="star">
-                                                                               <img class=fav-icons src="ico/star.png">
-
+                                        <img class="fav-icons" src="ico/star_yellow.png">
                                     </div>
                                     <div class="link">
-                                        
+
                                     </div>
 
                                 </div>
@@ -302,11 +301,10 @@
                                         <input type="checkbox" />
                                     </label>
                                     <div class="star">
-                                                                                <img class=fav-icons src="ico/star.png">
-
+                                        <img class="fav-icons" src="ico/star_yellow.png">
                                     </div>
                                     <div class="link">
-                                        
+
                                     </div>
 
                                 </div>
@@ -332,11 +330,10 @@
                                         <input type="checkbox" />
                                     </label>
                                     <div class="star">
-                                                                               <img class=fav-icons src="ico/star.png">
-
+                                        <img class="fav-icons" src="ico/star_yellow.png">
                                     </div>
                                     <div class="link">
-                                        
+
                                     </div>
 
                                 </div>
@@ -346,16 +343,16 @@
                         </div>
 
                     </div>
-                    
-                    
+
+
                     <div class="message">
-                        
+
                         <div name="myform">
                             <input name="myform-text" type="text" id="textchat">
                             <button name="btn" id="btn">送信</button>
                         </div>
-                        
-                        <div class="chat_card">
+
+                        <div class="chat_card" id="chat_card">
                             <img src="ico/inoshishi.png" alt="アイコン" class="user_icon">
 
                             <div class="chat_area">
@@ -370,6 +367,16 @@
                                 </div>
 
                             </div>
+                        </div>
+
+                        <div class="text-input">
+
+                            <input type="text" class="input1" placeholder="テキストを入力">
+                            <label for="input1" id="name-holder3">chat</label>
+
+                            <input type="file">
+                            <input type="submit">
+
                         </div>
 
                         <!--
@@ -431,10 +438,9 @@
         <div class="modal js-modal">
             <div class="modal__bg js-modal-close"></div>
             <div class="modal__content">
-
                 <div>
                     <div class="text-input" id="right-col">
-                        <input type="text" class="input1" placeholder="チャンネル名を入力">
+                        <input type="text" id="chanelname" class="input1" placeholder="チャンネル名を入力">
                         <label for="input1" id="name-holder">Text</label>
                     </div>
 
@@ -443,7 +449,6 @@
                         <label for="input1" id="name-holder2">Voice</label>
                     </div>
                 </div>
-
 
                 <a class="js-modal-close" href="">閉じる</a>
             </div>

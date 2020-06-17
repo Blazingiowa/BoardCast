@@ -99,6 +99,25 @@ function MainPageEvent() {
             }
         });
 
+        //遊びの処理
+        $('.text_area').textillate({
+            loop: false,
+            minDisplayTime: 3000,
+            initialDelay: 1000,
+            autoStart: true,
+
+            in: {
+                effect: 'rotateIn',
+                delayScale: 1.5,
+                delay: 50,
+                sync: false,
+                shuffle: false
+            }
+        });
+        //ここまで
+
+
+
         var anitime = 500;
 
         $('.names').mouseover(function () {
@@ -192,17 +211,21 @@ function TextInputListener() {
     var card_id = document.getElementById('card_clone');
     var card = document.getElementsByClassName('card');
 
+    //JQuery
     $(function () {
         $(".js-modal-close").click(function () {
-            var TextChannelName = $(".input1").val();
+            //テキストボックスの中身が空字じゃなかったらチャンネル追加
+            if (document.getElementById('chanelname').value != "") {
+                var TextChannelName = $('#chanelname').val();
 
-            //JQuery
-            var cards_count = $('.card').length
-            console.log(cards_count);
+                var cards_count = $('.card').length
+                console.log(cards_count);
 
-            var card_node = $('#card_clone').clone().removeAttr('id').insertAfter($('.card').eq(cards_count - 1)).find('.mail-info').text(TextChannelName);
+                var card_node = $('#card_clone').clone().removeAttr('id').insertAfter($('.card').eq(cards_count - 1)).find('.mail-info').text(TextChannelName);
 
-            ClickEventListener();
+                ClickEventListener();
+            }
+
         });
     });
 }
@@ -240,17 +263,45 @@ function ClickEventListener() {
                 }, 200);
             });
     });
-    
-    $('.compose').hover(function(){
+
+    $('.compose').hover(function () {
         $(this).stop(true).animate({
-            borderRadius:'60'
-        },2000);
-    },function()
-                       {
+            borderRadius: '60'
+        }, 2000);
+    }, function () {
         $(this).stop(true).animate({
-            borderRadius:'13'
-        },200);
+            borderRadius: '13'
+        }, 200);
     });
+
+
+    //ファイル添付ボタンのアニメーション処理
+    var delayTime = 500;
+
+    /*$('.filebtn').hover(function () {
+        $(this).stop(true).animate({
+            backgroundColor: '#eb6ea5',
+            borderRadius: '10px',
+            borderColor: '#fff'
+        }, delayTime);
+
+        $('.material-icon').stop(true).animate({
+            color: '#fff'
+        }, delayTime);
+
+
+    }, function () {
+        $('.filebtn').stop(true).animate({
+            backgroundColor: '#fff',
+            borderRadius: '0px',
+            borderColor: '#000'
+        }, delayTime);
+
+        $('.material-icon').stop(true).animate({
+            color: '#000'
+        }, delayTime);
+    });*/
+
 }
 
 function AudioPlayListener() {
