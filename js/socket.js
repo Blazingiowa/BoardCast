@@ -1,4 +1,4 @@
-const socket = io.connect('http://192.168.3.18:3000');
+const socket = io.connect('http://192.168.11.39:3000');
 const nowDate = new Date();
 
 var inputMsg;
@@ -32,21 +32,10 @@ socket.on('connect', function () {
 
     });
 
-<<<<<<< HEAD
     socket.on('s2c_msg',function(GetMsg){
     //$('#msgView').prepend('<div>' + GetMsg.value['msg'] + "｜" + GetMsg.value['dates'] + '</div>');
-    /*$('.message').append('<div class="chat_card"><img src="ico/inoshishi.png" alt="アイコン" class="user_icon"><div class="chat_area"><div class="user_date"><span class="user_name"></span><span class="chat_time"></span></div><div class="text_area"></div></div></div>');*/
-        
-        var chatcard = $('#chat_card');
-        $('.message').append(chatcard);
-        
-=======
-    socket.on('s2c_msg', function (GetMsg) {
-        //$('#msgView').prepend('<div>' + GetMsg.value['msg'] + "｜" + GetMsg.value['dates'] + '</div>');
+    $('.message').append('<div class="chat_card"><img src="ico/inoshishi.png" alt="アイコン" class="user_icon"><div class="chat_area"><div class="user_date"><span class="user_name"></span><span class="chat_time"></span></div><div class="text_area"></div></div></div>');           
 
-        $('.message').append('<div class="chat_card"><img src="ico/inoshishi.png" alt="アイコン" class="user_icon"><div class="chat_area"><div class="user_date"><span class="user_name"></span><span class="chat_time"></span></div><div class="text_area"></div></div></div>');
-
->>>>>>> 449eaaf830823adad7776f954afbcfb8c9d81cd7
         $('.user_name').last().text(GetMsg.value['ip']);
         $('.text_area').last().text(GetMsg.value['msg']);
         $('.chat_time').last().text(GetMsg.value['dates']);
