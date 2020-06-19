@@ -840,3 +840,8 @@ body {
     top: 50%;
     font-size: 20px;
 }
+
+#preview {
+    width: 100px;
+    height: 100px;
+}
