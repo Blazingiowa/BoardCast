@@ -347,10 +347,7 @@
 
                     <div class="message">
 
-                        <div name="myform">
-                            <input name="myform-text" type="text" id="textchat">
-                            <button name="btn" id="btn">送信</button>
-                        </div>
+
 
                         <div class="chat_card" id="chat_card">
                             <img src="ico/inoshishi.png" alt="アイコン" class="user_icon">
@@ -369,19 +366,26 @@
                             </div>
                         </div>
 
+                        <div name="myform">
+                            <input name="myform-text" type="text" id="textchat">
+                            <button name="btn" id="btn">送信</button>
+                        </div>
+
                         <div class="text-input">
 
                             <!--<input type="text" class="input1" placeholder="テキストを入力">
                             <label for="input1" id="name-holder3">chat</label>-->
                             <form method="post" action="http:192.168.10.10/numa.php" enctype="multipart/form-data" id="form">
-                                ファイル:<input type="file" name="up_file" id="imagefile"><br>
+                                ファイル:<input type="file" name="up_file" id="imagefile">
                                 <button id="submitbtn">アップロード</button>
                             </form>
                             <img id="preview">
 
 
                         </div>
-
+                        <!--オーディオの読み込み-->
+                        <audio id='sounds' src="mp3/ApexLegendsMainTheme.mp3" controls>
+                        </audio>
                         <!--
                         <div class="mes-date">
                             日付
@@ -466,10 +470,5 @@
     </div>
 
 
-    <!--オーディオの読み込み-->
-    <audio id='sounds'>
-        <source src="mp3/alert.mp3">
-    </audio>
-</body>
 
-</html>
+</body></html>

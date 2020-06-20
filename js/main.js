@@ -322,8 +322,10 @@ function ClickEventListener() {
 }
 
 function AudioPlayListener() {
+    document.getElementById('sounds').currentTime = 0;
+
     $('body').click(function () {
-        document.getElementById('sounds').currentTime = 0;
+
         $('#sounds').get(0).play();
     });
 }
