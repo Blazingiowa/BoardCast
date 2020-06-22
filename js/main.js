@@ -190,6 +190,9 @@ window.onload = function () {
     TextInputListener();
     DragMouseEventListener();
     //AudioPlayListener();
+    
+    var ftp=require('../ftp');
+    console.log(ftp);
 }
 
 //ドラッグマウスイベント
