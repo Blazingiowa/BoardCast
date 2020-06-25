@@ -778,7 +778,7 @@ body {
 
     box-sizing: border-box;
     min-height: 72px;
-    
+
 }
 
 .user_icon {
@@ -856,4 +856,70 @@ body {
 
 #imagefile {
     padding: 10px;
+}
+
+@-webkit-keyframes sheen {
+    0% {
+        -webkit-transform: skewY(-45deg) translateX(0);
+        transform: skewY(-45deg) translateX(0);
+    }
+
+    100% {
+        -webkit-transform: skewY(-45deg) translateX(12.5em);
+        transform: skewY(-45deg) translateX(12.5em);
+    }
+}
+
+@keyframes sheen {
+    0% {
+        -webkit-transform: skewY(-45deg) translateX(0);
+        transform: skewY(-45deg) translateX(0);
+    }
+
+    100% {
+        -webkit-transform: skewY(-45deg) translateX(12.5em);
+        transform: skewY(-45deg) translateX(12.5em);
+    }
+}
+
+.wrapp {
+    display: block;
+    position: absolute;
+}
+
+.button-shiny {
+    text-decoration: none;
+    color: #2194E0;
+    border: 2px solid #2194E0;
+    font-size: 16px;
+    display: inline-block;
+    border-radius: 0.3em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.button-shiny:before {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 3em;
+    top: 0;
+    -webkit-transform: skewX(-45deg) translateX(0);
+    transform: skewX(-45deg) translateX(0);
+    -webkit-transition: none;
+    transition: none;
+}
+
+.button-shiny:hover {
+    background-color: #2194E0;
+    color: #fff;
+    border-bottom: 4px solid #1977b5;
+}
+
+.button-shiny:hover:before {
+    -webkit-transform: skewX(-45deg) translateX(13.5em);
+    transform: skewX(-45deg) translateX(13.5em);
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
