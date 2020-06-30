@@ -190,6 +190,23 @@ window.onload = function () {
     TextInputListener();
     DragMouseEventListener();
     //AudioPlayListener();
+    ImagePreviewEvent();
+}
+
+//画像がアップロードされたらその画像をプレビュー
+function ImagePreviewEvent() {
+    $(function () {
+
+        $('#imagefile').change(function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        const url = 'http://192.168.10.10/numa.php';
+    });
 }
 
 //ドラッグマウスイベント
@@ -305,8 +322,10 @@ function ClickEventListener() {
 }
 
 function AudioPlayListener() {
+    document.getElementById('sounds').currentTime = 0;
+
     $('body').click(function () {
-        document.getElementById('sounds').currentTime = 0;
+
         $('#sounds').get(0).play();
     });
 }

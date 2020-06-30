@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/drawer.min.css">
 
-    <!--javascriptの読み込み-->
+    <!--JQuery関連のライブラリの読み込み-->
     <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.lettering.js"></script>
     <script type="text/javascript" src="js/jquery.textillate.js"></script>
@@ -20,11 +20,13 @@
     <script src="js/iscroll.js"></script>
     <script src="js/Sortable.min.js"></script>
 
-    <!--socket関係のjs
-    環境が違うため一時的にコメントアウト-->
+    <!--socket関係のjs-->
     <script type="text/javascript" src="http://192.168.3.18:3000/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/socket.js"></script>
 
+    <!--React.jsの読み込み-->
+    <script src="js/react.min.js"></script>
+    <script src="js/react-dom.min.js"></script>
 
     <!--main.jsは必ず最後に読み込む-->
     <script src="js/main.js"></script>
@@ -346,10 +348,7 @@
 
                     <div class="message">
 
-                        <div name="myform">
-                            <input name="myform-text" type="text" id="textchat">
-                            <button name="btn" id="btn">送信</button>
-                        </div>
+
 
                         <div class="chat_card" id="chat_card">
                             <img src="ico/inoshishi.png" alt="アイコン" class="user_icon">
@@ -368,16 +367,28 @@
                             </div>
                         </div>
 
-                        <div class="text-input">
-
-                            <input type="text" class="input1" placeholder="テキストを入力">
-                            <label for="input1" id="name-holder3">chat</label>
-
-                            <input type="file">
-                            <input type="submit">
-
+                        <div name="myform">
+                            <input name="myform-text" type="text" id="textchat">
+                            <div class="wrapp">
+                                <button name="btn" id="btn" class='button-shiny'>送信</button>
+                            </div>
                         </div>
 
+                        <div class="text-input">
+
+                            <!--<input type="text" class="input1" placeholder="テキストを入力">
+                            <label for="input1" id="name-holder3">chat</label>-->
+                            <form method="post" action="http:192.168.11.54/numa.php" enctype="multipart/form-data" id="form">
+                                ファイル:<input type="file" name="up_file" id="imagefile">
+                                <button id="submitbtn">アップロード</button>
+                            </form>
+                            <img id="preview">
+
+
+                        </div>
+                        <!--オーディオの読み込み-->
+                        <audio id='sounds' src="mp3/ApexLegendsMainTheme.mp3" controls>
+                        </audio>
                         <!--
                         <div class="mes-date">
                             日付
@@ -462,8 +473,5 @@
     </div>
 
 
-    <!--オーディオの読み込み-->
-    <audio id='sounds'>
-        <source src="mp3/alert.mp3">
-    </audio>
+
 </body></html>
