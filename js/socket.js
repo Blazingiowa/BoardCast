@@ -1,19 +1,37 @@
-const socket = io.connect('http://192.168.11.39:3000');
+const socket = io.connect('http://192.168.3.18:3000');
 const nowDate = new Date();
 
-var inputMsg;
+var inputmsg;
 var year;
 var month;
 var day;
 var dates;
-
-var SendMsg;
-
+var sendmsg;
+var card;
+var card_mok;
+var cards_length;
 
 socket.on('connect', function () {
+    
+    socket.emit('startup',{value:"が接続しました。"})
+    socket.on('startupchat',function(getmsg){
+
+        for(var i = 0;i < getmsg.value.length;i++){
+            card = $('.chat_card');
+            card_mok = $('#chat_card');
+            cards_length = card.length;
+            card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length - 1));
+
+            $('.user_name').last().text(getmsg.value[i].username);
+            $('.text_area').last().text(getmsg.value[i].message);
+            $('.chat_time').last().text(getmsg.value[i].dates); 
+        }
+
+        
+    });
 
     $('#btn').click(function () {
-        inputMsg = $('#textchat').val();
+        inputmsg = $('#textchat').val();
         $('#textchat').val("");
 
         year = nowDate.getFullYear();
@@ -21,31 +39,28 @@ socket.on('connect', function () {
         day = nowDate.getDate();
         dates = year + "/" + month + "/" + day;
 
-        SendMsg = {
-            msg: inputMsg,
+        sendmsg = {
+            msg: inputmsg,
             dates: dates
         };
 
         socket.emit('c2s_msg', {
-            value: SendMsg
+            value: sendmsg
         });
 
     });
+    
+    socket.on('s2c_msg', function (getmsg) {
 
-    socket.on('s2c_msg', function (GetMsg) {
-        //$('#msgView').prepend('<div>' + GetMsg.value['msg'] + "｜" + GetMsg.value['dates'] + '</div>');
-        var card=$('.chat_card');
-        var card_mok=$('#chat_card');
-        
-        var cards_length=card.length;
-        
-        card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length-1));
+        card = $('.chat_card');
+        card_mok = $('#chat_card');
+        cards_length = card.length;
+        card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length - 1));
 
 
-        $('.user_name').last().text(GetMsg.value['ip']);
-        $('.text_area').last().text(GetMsg.value['msg']);
-        $('.chat_time').last().text(GetMsg.value['dates']);
-
-
+        $('.user_name').last().text(getmsg.value['username']);
+        $('.text_area').last().text(getmsg.value['msg']);
+        $('.chat_time').last().text(getmsg.value['dates']);
     });
+    
 });
