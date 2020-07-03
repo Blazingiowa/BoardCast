@@ -1,4 +1,4 @@
-const socket = io.connect('http://192.168.3.18:3000');
+const socket = io.connect('http://153.122.64.7:3000');
 const nowDate = new Date();
 
 var inputmsg;
@@ -15,19 +15,20 @@ socket.on('connect', function () {
     
     socket.emit('startup',{value:"が接続しました。"})
     socket.on('startupchat',function(getmsg){
-
-        for(var i = 0;i < getmsg.value.length;i++){
-            card = $('.chat_card');
-            card_mok = $('#chat_card');
-            cards_length = card.length;
-            card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length - 1));
-
-            $('.user_name').last().text(getmsg.value[i].username);
-            $('.text_area').last().text(getmsg.value[i].message);
-            $('.chat_time').last().text(getmsg.value[i].dates); 
-        }
-
         
+        if(getmsg.value.length > 0)
+            {
+                for(var i = 0;i < getmsg.value.length;i++){
+                    card = $('.chat_card');
+                    card_mok = $('#chat_card');
+                    cards_length = card.length;
+                    card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length - 1));
+
+                    $('.user_name').last().text(getmsg.value[i].username);
+                    $('.text_area').last().text(getmsg.value[i].message);
+                    $('.chat_time').last().text(getmsg.value[i].dates); 
+                }  
+            }     
     });
 
     $('#btn').click(function () {
