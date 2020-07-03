@@ -180,6 +180,7 @@ function MainPageEvent() {
     $(document).ready(function () {
         $('.drawer').drawer();
     });
+    
 }
 //以下普通のJavaScript
 
@@ -318,6 +319,16 @@ function ClickEventListener() {
             color: '#000'
         }, delayTime);
     });*/
+    
+    //ホワイトボードのポップアウト
+    
+   
+    $('#whiteboard').magnificPopup({
+        items:{
+            src:"../whiteboard.html"
+         },
+        type:'inline'
+    });
 
 }
 
