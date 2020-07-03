@@ -320,16 +320,10 @@ function ClickEventListener() {
         }, delayTime);
     });*/
     
-    //ホワイトボードのポップアウト
-    
-   
-    $('#whiteboard').magnificPopup({
-        items:{
-            src:"../whiteboard.html"
-         },
-        type:'inline'
-    });
-
+    //ホワイトボードの処理z
+    $('.whiteboard').click(function(){
+        
+    })
 }
 
 function AudioPlayListener() {
