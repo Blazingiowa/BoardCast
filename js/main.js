@@ -320,9 +320,9 @@ function ClickEventListener() {
         }, delayTime);
     });*/
     
-    //ホワイトボードの処理z
-    $('.whiteboard').click(function(){
-        
+    //ホワイトボードの処理
+    $('#whiteboard').on('click',()=>{
+        $('.right-side-chat').hide();
     })
 }
 
