@@ -882,10 +882,7 @@ body {
     }
 }
 
-.wrapp {
-    display: block;
-    position: absolute;
-}
+
 
 .button-shiny {
     text-decoration: none;
