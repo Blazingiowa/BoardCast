@@ -15,7 +15,9 @@ function createWindow() {
     win.webContents.openDevTools();
     //↑
 
-    win.loadURL(`file://${__dirname}/../index.html`);
+   //win.loadURL(`file://${__dirname}/../index.html`);
+    win.loadURL(`file://${__dirname}/../form.html`);
+    
     win.on("closed", () => {
         win = null;
     });

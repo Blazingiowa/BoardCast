@@ -180,19 +180,11 @@ function MainPageEvent() {
     $(document).ready(function () {
         $('.drawer').drawer();
     });
-
+    
 }
 //以下普通のJavaScript
 
-//ページのロードが終わったら実行
-window.onload = function () {
-    MainPageEvent();
-    ClickEventListener();
-    TextInputListener();
-    DragMouseEventListener();
-    //AudioPlayListener();
-    ImagePreviewEvent();
-}
+
 
 //画像がアップロードされたらその画像をプレビュー
 function ImagePreviewEvent() {
@@ -319,11 +311,16 @@ function ClickEventListener() {
             color: '#000'
         }, delayTime);
     });*/
-
-    //ホワイトボードの処理z
-    $('.whiteboard').click(function () {
-
-    })
+    
+    //チャット表示の処理
+    $('#chatbtn').on('click',()=>{
+        $('.right-side-chat').show();
+    });
+    
+    //ホワイトボード表示の処理
+    $('#whiteboardbtn').on('click',()=>{
+        $('.right-side-chat').hide();
+    });
 }
 
 function AudioPlayListener() {
@@ -333,4 +330,14 @@ function AudioPlayListener() {
 
         $('#sounds').get(0).play();
     });
+}
+
+//ページのロードが終わったら実行
+window.onload = function () {
+    MainPageEvent();
+    ClickEventListener();
+    TextInputListener();
+    DragMouseEventListener();
+    //AudioPlayListener();
+    ImagePreviewEvent();
 }
