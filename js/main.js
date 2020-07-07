@@ -312,10 +312,15 @@ function ClickEventListener() {
         }, delayTime);
     });*/
     
-    //ホワイトボードの処理
-    $('#whiteboard').on('click',()=>{
+    //チャット表示の処理
+    $('#chatbtn').on('click',()=>{
+        $('.right-side-chat').show();
+    });
+    
+    //ホワイトボード表示の処理
+    $('#whiteboardbtn').on('click',()=>{
         $('.right-side-chat').hide();
-    })
+    });
 }
 
 function AudioPlayListener() {
