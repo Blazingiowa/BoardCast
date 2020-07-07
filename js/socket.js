@@ -1,6 +1,7 @@
 const socket = io.connect('http://153.122.64.7:3000');
 const nowDate = new Date();
 
+var message;
 var inputmsg;
 var year;
 var month;
@@ -25,7 +26,10 @@ socket.on('connect', function () {
                     card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length - 1));
 
                     $('.user_name').last().text(getmsg.value[i].username);
-                    $('.text_area').last().text(getmsg.value[i].message);
+                    
+                    message = sanitaize.decode(getmsg.value[i].message);
+                    
+                    $('.text_area').last().text(message);
                     $('.chat_time').last().text(getmsg.value[i].dates); 
                 }  
             }     
@@ -60,8 +64,18 @@ socket.on('connect', function () {
 
 
         $('.user_name').last().text(getmsg.value['username']);
-        $('.text_area').last().text(getmsg.value['msg']);
+        
+        message = sanitaize.decode(getmsg.value['msg']);
+        
+        $('.text_area').last().text(message);
         $('.chat_time').last().text(getmsg.value['dates']);
     });
     
 });
+
+//サニタイジングされた文字列をデコードするためのメソッド
+sanitaize = {
+    decode : function(str){
+        return str.replace(/&lt;/g,'<').replace(/gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,'\'').replace(/&amp;/g,'&');
+    }
+}
