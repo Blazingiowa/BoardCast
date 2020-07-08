@@ -18,21 +18,21 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form action="http://153.122.64.7:3000/waithi" method="post" id="newform">
                 <h1>新しいアカウントを作りましょう！</h1>
 
-                <input type="text" placeholder="ユーザ名">
-                <input type="password" placeholder="パスワード">
+                <input type="text" name="newuser" placeholder="ユーザ名">
+                <input type="password" name="newpass" placeholder="パスワード">
 
-                <button>作成</button>
+                <button id="createbtn">作成</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
             <form action="#">
                 <h1>サインイン</h1>
 
-                <input type="text" placeholder="ユーザ名">
-                <input type="password" placeholder="パスワード">
+                <input type="text" name="user" placeholder="ユーザ名">
+                <input type="password" name="pass" placeholder="パスワード">
                 <button>サインイン</button>
             </form>
         </div>
@@ -56,4 +56,6 @@
     <!-- partial -->
     <script src="form_script.js"></script>
 
-</body></html>
+</body>
+
+</html>
