@@ -233,6 +233,67 @@ body {
     flex-direction: column;
 }
 
+.right-side-whiteboard{
+    background-color: #f2f3f7;
+    width: 100%;
+    padding: 8px 30px;
+    display: -webkit-box;
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.wb-main {
+	background-color: white;
+}
+
+.cv-main {
+    padding-left:10px; margin:auto;
+}
+
+.wb-toolbar {}
+
+.wb-toolbar li {
+    width:44px; height:44px; margin:auto;list-style-type: none; border:1px solid #ccc; border-radius:6px; margin:10px; display:block; float:left;
+}
+
+#wb-black {
+    background-color:black;
+}
+
+#wb-red {
+    background-color:red;
+}
+
+#wb-green {
+    background-color:green;
+}
+
+#wb-blue {
+    background-color:blue;
+}
+
+#wb-small {
+    text-align:center; line-height:44px; font-size:100%;
+}
+
+#wb-middle {
+    text-align:center; line-height:44px; font-size:200%;
+}
+
+#wb-large {
+    text-align:center; line-height:44px; font-size:400%;
+}
+
+.wb-canvas {
+    width:1490px; height:815px; border:1px solid #ccc;
+}
+
+.wb-canvas canvas {
+    width:1490px; height:815px;
+}
+
 .right-body {
     -webkit-box-flex: 1;
     flex: 1;

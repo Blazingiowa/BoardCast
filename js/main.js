@@ -322,12 +322,16 @@ function ClickEventListener() {
     
     //チャット表示の処理
     $('#chatbtn').on('click',()=>{
+        $('.right-side-whiteboard').hide();
+        $('.big-inbox').text("チャンネルタイトル");
         $('.right-side-chat').show();
     });
     
     //ホワイトボード表示の処理
     $('#whiteboardbtn').on('click',()=>{
         $('.right-side-chat').hide();
+        $('.big-inbox').text("ホワイトボード")
+        $('.right-side-whiteboard').show();
     });
 }
 
