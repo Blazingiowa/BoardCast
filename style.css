@@ -1005,26 +1005,40 @@ body {
     float: left;
 }
 
-#black {
+#wb-allclear {
+    text-align: center;
+    line-height: 44px;
+    font-size: 10%;
+    background-color: azure;
+}
+
+#wb-clear {
+    text-align: center;
+    line-height: 44px;
+    font-size: 10%;
+	background-color: azure;
+}
+
+#wb-black {
     background-color: black;
 }
 
-#red {
+#wb-red {
     background-color: red;
 }
 
-#green {
+#wb-green {
     background-color: green;
 }
 
-#blue {
+#wb-blue {
     background-color: blue;
 }
 
 #small {
     text-align: center;
     line-height: 44px;
-    font-size: 100%;
+    font-size: 200%;
 }
 
 #middle {
@@ -1036,7 +1050,7 @@ body {
 #large {
     text-align: center;
     line-height: 44px;
-    font-size: 400%;
+    font-size: 200%;
 }
 
 .canvas {

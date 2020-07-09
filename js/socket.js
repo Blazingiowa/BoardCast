@@ -146,7 +146,15 @@ socket.on('connect', function () {
     }, false);
 
     // 色や太さを選択した場合の処理
-    // 選択した結果を、Canvasに設定して、socket.IOサーバーにも送付している
+    // 選択した結果を、Canvasに設定して、socket.IOサーバーにも送付している 
+    $("#wb-allclear").click(function () {
+        c.clearRect(0,0,w,h);
+        socket.emit("clear", "");
+    });
+    $("#wb-clear").click(function () {
+        c.strokeStyle = "white";
+        socket.emit("color", "white");
+    });
     $("#wb-black").click(function () {
         c.strokeStyle = "black";
         socket.emit("color", "black");
@@ -197,6 +205,10 @@ socket.on('connect', function () {
     // Canvasに線の太さを設定している
     socket.on("lineWidth", function (data) {
         c.lineWidth = data;
+    });
+    
+    socket.on("allclear",function(clear){
+        c.clearRect(0,0,w,h); 
     });
 });
 
