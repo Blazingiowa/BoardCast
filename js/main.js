@@ -184,15 +184,7 @@ function MainPageEvent() {
 }
 //以下普通のJavaScript
 
-//ページのロードが終わったら実行
-window.onload = function () {
-    MainPageEvent();
-    ClickEventListener();
-    TextInputListener();
-    DragMouseEventListener();
-    //AudioPlayListener();
-    ImagePreviewEvent();
-}
+
 
 //画像がアップロードされたらその画像をプレビュー
 function ImagePreviewEvent() {
@@ -342,4 +334,14 @@ function AudioPlayListener() {
 
         $('#sounds').get(0).play();
     });
+}
+
+//ページのロードが終わったら実行
+window.onload = function () {
+    MainPageEvent();
+    ClickEventListener();
+    TextInputListener();
+    DragMouseEventListener();
+    //AudioPlayListener();
+    ImagePreviewEvent();
 }
