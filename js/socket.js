@@ -27,7 +27,8 @@ socket.on('connect', function () {
                 card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length - 1));
 
                 $('.user_name').last().text(getmsg.value[i].username);
-
+                
+                console.log(getmsg.value[i].message);
                 message = sanitaize.decode(getmsg.value[i].message);
 
                 $('.text_area').last().text(message);
@@ -44,9 +45,11 @@ socket.on('connect', function () {
         month = nowDate.getMonth() + 1;
         day = nowDate.getDate();
         dates = year + "/" + month + "/" + day;
-
+        
+        message = sanitaize.encode(inputmsg);
+        
         sendmsg = {
-            msg: inputmsg,
+            msg: message,
             dates: dates
         };
 
@@ -79,6 +82,11 @@ socket.on('connect', function () {
     var h = 815;
     var drawing = false;
     var oldPos;
+    var pallet;
+    const el = {
+        html:document.getElementsByTagName('html')[0],
+        picker:document.querySelector("#wb-pallet")
+    };
 
     // Canvasを初期化する
     canvas.width = w;
@@ -183,6 +191,11 @@ socket.on('connect', function () {
         c.lineWidth = 20;
         socket.emit("lineWidth", 20);
     });
+    el.picker.addEventListener('input',e =>{
+        pallet = e.target.value;
+        c.strokeStyle = pallet;
+        socket.emit("color",pallet);
+    })
 
     // socket.IOサーバーから描画情報を受け取った場合の処理
     // 受け取った情報を元に、Canvasに描画を行う
@@ -198,6 +211,7 @@ socket.on('connect', function () {
     // Canvasに色を設定している
     socket.on("color", function (data) {
         c.strokeStyle = data;
+        document.getElementById("wb-pallet").value = data;
     });
 
 
@@ -207,15 +221,19 @@ socket.on('connect', function () {
         c.lineWidth = data;
     });
     
-    socket.on("allclear",function(clear){
+    socket.on("clear",function(clear){
         c.clearRect(0,0,w,h); 
     });
 });
 
 //サニタイジングされた文字列をデコードするためのメソッド
 sanitaize = {
+    
+    encode : function (str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    },
 
     decode: function (str) {
-        return str.replace(/&lt;/g, '<').replace(/gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, '\'').replace(/&amp;/g, '&');
+        return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, '\'').replace(/&amp;/g, '&');
     }
 }

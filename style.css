@@ -233,7 +233,7 @@ body {
     flex-direction: column;
 }
 
-.right-side-whiteboard{
+.right-side-whiteboard {
     background-color: #f2f3f7;
     width: 100%;
     padding: 8px 30px;
@@ -245,53 +245,90 @@ body {
 }
 
 .wb-main {
-	background-color: white;
+    background-color: white;
 }
 
 .cv-main {
-    padding-left:10px; margin:auto;
+    padding-left: 10px;
+    margin: auto;
 }
 
 .wb-toolbar {}
 
 .wb-toolbar li {
-    width:44px; height:44px; margin:auto;list-style-type: none; border:1px solid #ccc; border-radius:6px; margin:10px; display:block; float:left;
+    width: 44px;
+    height: 44px;
+    margin: auto;
+    list-style-type: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 10px;
+    display: block;
+    float: left;
+}
+
+#wb-allclear {
+    text-align: center;
+    line-height: 44px;
+    font-size: 10%;
+    background-color: azure;
+}
+
+#wb-clear {
+    text-align: center;
+    line-height: 44px;
+    font-size: 10%;
+    background-color: azure;
 }
 
 #wb-black {
-    background-color:black;
+    background-color: black;
 }
 
 #wb-red {
-    background-color:red;
+    background-color: red;
 }
 
 #wb-green {
-    background-color:green;
+    background-color: green;
 }
 
 #wb-blue {
-    background-color:blue;
+    background-color: blue;
 }
 
 #wb-small {
-    text-align:center; line-height:44px; font-size:100%;
+    text-align: center;
+    line-height: 44px;
+    font-size: 100%;
 }
 
 #wb-middle {
-    text-align:center; line-height:44px; font-size:200%;
+    text-align: center;
+    line-height: 44px;
+    font-size: 200%;
 }
 
 #wb-large {
-    text-align:center; line-height:44px; font-size:400%;
+    text-align: center;
+    line-height: 44px;
+    font-size: 400%;
+}
+
+#wb-pallet {
+    width: 60px;
+    height: 60px;
 }
 
 .wb-canvas {
-    width:1490px; height:815px; border:1px solid #ccc;
+    width: 1490px;
+    height: 815px;
+    border: 1px solid #ccc;
 }
 
 .wb-canvas canvas {
-    width:1490px; height:815px;
+    width: 1490px;
+    height: 815px;
 }
 
 .right-body {
@@ -980,86 +1017,4 @@ body {
     transform: skewX(-45deg) translateX(13.5em);
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-}
-
-.right-side-whiteboard {
-    display: none;
-}
-
-.main {
-    padding-left: 10px;
-    margin: auto;
-}
-
-.toolbar {}
-
-.toolbar li {
-    width: 44px;
-    height: 44px;
-    margin: auto;
-    list-style-type: none;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin: 10px;
-    display: block;
-    float: left;
-}
-
-#wb-allclear {
-    text-align: center;
-    line-height: 44px;
-    font-size: 10%;
-    background-color: azure;
-}
-
-#wb-clear {
-    text-align: center;
-    line-height: 44px;
-    font-size: 10%;
-	background-color: azure;
-}
-
-#wb-black {
-    background-color: black;
-}
-
-#wb-red {
-    background-color: red;
-}
-
-#wb-green {
-    background-color: green;
-}
-
-#wb-blue {
-    background-color: blue;
-}
-
-#small {
-    text-align: center;
-    line-height: 44px;
-    font-size: 200%;
-}
-
-#middle {
-    text-align: center;
-    line-height: 44px;
-    font-size: 200%;
-}
-
-#large {
-    text-align: center;
-    line-height: 44px;
-    font-size: 200%;
-}
-
-.canvas {
-    width: 450px;
-    height: 400px;
-    border: 1px solid #ccc;
-}
-
-.canvas canvas {
-    width: 450px;
-    height: 400px;
 }
