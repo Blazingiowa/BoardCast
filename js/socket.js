@@ -26,11 +26,8 @@ socket.on('connect', function () {
                 cards_length = card.length;
                 card_mok.clone().removeAttr('id').insertAfter($('.chat_card').eq(cards_length - 1));
 
-                $('.user_name').last().text(getmsg.value[i].username);
-                
-                console.log(getmsg.value[i].message);
+                $('.user_name').last().text(getmsg.value[i].username);               
                 message = sanitaize.decode(getmsg.value[i].message);
-
                 $('.text_area').last().text(message);
                 $('.chat_time').last().text(getmsg.value[i].dates);
             }
@@ -230,10 +227,10 @@ socket.on('connect', function () {
 sanitaize = {
     
     encode : function (str) {
-        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/`/g,'&#x60;');
     },
 
     decode: function (str) {
-        return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, '\'').replace(/&amp;/g, '&');
+        return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, '\'').replace(/&amp;/g, '&').replace(/&#x60;/g,'`');
     }
 }
