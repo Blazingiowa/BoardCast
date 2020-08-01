@@ -1,6 +1,6 @@
 const {
     app,
-    BrowserWindow
+    BrowserWindow,
 } = require('electron');
 let win;
 
@@ -16,7 +16,7 @@ function createWindow() {
     //↑
 
     //win.loadURL(`file://${__dirname}/../index.html`);
-    win.loadURL(`file://${__dirname}/../form.html`);
+    win.loadURL('http://boardcast.jp/test.html');
     
     win.on("closed", () => {
         win = null;
